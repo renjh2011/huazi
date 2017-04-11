@@ -35,6 +35,8 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 
+	<aop:aspectj-autoproxy/>
+
 	<!-- AOP式方法级权限检查  -->
 	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
 		depends-on="lifecycleBeanPostProcessor">
@@ -76,4 +78,19 @@
 			</list>
 		</property>
 	</bean>
+
+	<bean id="druid-stat-interceptor" class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor">
+	</bean>
+	<bean id="druid-stat-pointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut" scope="prototype">
+		<property name="patterns">
+			<list>
+				<value>com.xpand.dispatcher.modules.sys.service.*</value>
+				<value>com.xpand.dispatcher.modules.sys.dao.*</value>
+			</list>
+		</property>
+	</bean>
+
+	<aop:config proxy-target-class="true">
+		<aop:advisor advice-ref="druid-stat-interceptor" pointcut-ref="druid-stat-pointcut" />
+	</aop:config>
 </beans>
