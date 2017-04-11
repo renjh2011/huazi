@@ -15,6 +15,7 @@
         <module>xpand-dispatcher</module>
         <module>xpand-common</module>
         <module>xpand-web</module>
+        <module>xpand-generator</module>
     </modules>
 
     <properties>
