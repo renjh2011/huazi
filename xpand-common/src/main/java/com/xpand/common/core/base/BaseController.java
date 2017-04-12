@@ -4,6 +4,7 @@
 package com.xpand.common.core.base;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,19 +37,24 @@ public abstract class BaseController {
 	@ExceptionHandler(Exception.class)
 	public void exceptionHandler(HttpServletRequest request, HttpServletResponse response, Exception ex)
 			throws Exception {
-		ModelMap modelMap = new ModelMap();
-		/*if (ex instanceof BaseException) {
-			((BaseException) ex).handler(modelMap);
-		} else if (ex instanceof IllegalArgumentException) {
-			new IllegalParameterException(ex.getMessage()).handler(modelMap);
-		} else if (ex instanceof UnauthorizedException) {
-			setModelMap(modelMap, HttpCode.FORBIDDEN);
-		} else {
-			setModelMap(modelMap, HttpCode.INTERNAL_SERVER_ERROR);
-		}*/
-		request.setAttribute("msg", modelMap.get("msg"));
 		response.setContentType("application/json;charset=UTF-8");
-		byte[] bytes = JSON.toJSONBytes(modelMap, SerializerFeature.DisableCircularReferenceDetect);
-		response.getOutputStream().write(bytes);
+		response.getOutputStream().write(JSONObject.toJSON(ResponseObject.failure(ex.getMessage())).toString().getBytes());
+	}
+
+	protected ResponseObject success() {
+		return  ResponseObject.success();
+	}
+
+	protected <T> ResponseObject success(T data) {
+		return  ResponseObject.success(data);
+	}
+
+
+	protected ResponseObject failure(String msg) {
+		return  ResponseObject.failure(msg);
+	}
+
+	protected ResponseObject failure(int code, String msg) {
+		return  ResponseObject.failure(code,msg);
 	}
 }

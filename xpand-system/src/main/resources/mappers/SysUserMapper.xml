@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xpand.system.modules.sys.dao.SysUserDao">
+  <resultMap id="BaseResultMap" type="com.xpand.system.modules.sys.model.SysUser">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="company_id" jdbcType="VARCHAR" property="companyId" />
+    <result column="org_id" jdbcType="VARCHAR" property="orgId" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="login_valid" jdbcType="BIT" property="loginValid" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
+    <result column="creator_id" jdbcType="VARCHAR" property="creatorId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="updater_id" jdbcType="VARCHAR" property="updaterId" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <select id="findLoginUser" parameterType="com.xpand.system.modules.sys.model.SysUser"
+          resultType="com.xpand.system.modules.sys.model.SysUser">
+    select id, username, password, mobile, phone, email, company_id, org_id,
+    login_ip, login_time, login_valid, remarks, is_deleted, creator_id, create_time,
+    updater_id, update_time
+    from sys_user
+    where (username = #{username,jdbcType=VARCHAR} or mobile = #{username,jdbcType=VARCHAR})
+      AND password = #{password,jdbcType=VARCHAR}
+  </select>
+
+  <select id="get" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, city_id, username, password, mobile, phone, email, company_id, org_id,
+    login_ip, login_time, login_valid, remarks, is_deleted, creator_id, create_time,
+    updater_id, update_time
+    from sys_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xpand.system.modules.sys.model.SysUser">
+    insert into sys_user (id, city_id, username, 
+      password, mobile, phone, 
+      email, company_id, org_id, 
+      login_ip, login_time, login_valid, 
+      remarks, is_deleted, creator_id, 
+      create_time, updater_id, update_time
+      )
+    values (#{id,jdbcType=VARCHAR}, #{cityId,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{companyId,jdbcType=VARCHAR}, #{orgId,jdbcType=VARCHAR}, 
+      #{loginIp,jdbcType=VARCHAR}, #{loginTime,jdbcType=TIMESTAMP}, #{loginValid,jdbcType=BIT}, 
+      #{remarks,jdbcType=VARCHAR}, #{isDeleted,jdbcType=BIT}, #{creatorId,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updaterId,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.xpand.system.modules.sys.model.SysUser">
+    update sys_user
+    set city_id = #{cityId,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      company_id = #{companyId,jdbcType=VARCHAR},
+      org_id = #{orgId,jdbcType=VARCHAR},
+      login_ip = #{loginIp,jdbcType=VARCHAR},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
+      login_valid = #{loginValid,jdbcType=BIT},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=BIT},
+      creator_id = #{creatorId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      updater_id = #{updaterId,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, city_id, username, password, mobile, phone, email, company_id, org_id, 
+    login_ip, login_time, login_valid, remarks, is_deleted, creator_id, create_time, 
+    updater_id, update_time
+    from sys_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, city_id, username, password, mobile, phone, email, company_id, org_id, 
+    login_ip, login_time, login_valid, remarks, is_deleted, creator_id, create_time, 
+    updater_id, update_time
+    from sys_user
+  </select>-->
+</mapper>

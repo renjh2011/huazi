@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xpand.system.modules.sys.dao.SysPermissionDao" >
+  <resultMap id="BaseResultMap" type="com.xpand.system.modules.sys.model.SysPermission" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="menu_id" property="menuId" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="BIT" />
+    <result column="creator_id" property="creatorId" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updater_id" property="updaterId" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <sql id="columns">
+    id, code, name, menu_id, is_deleted, creator_id, create_time, updater_id,
+    update_time
+  </sql>
+  <select id="findPermissionsByRoleIds" parameterType="java.util.List" resultType="com.xpand.system.modules.sys.model.SysPermission">
+    SELECT * FROM sys_permission a
+    LEFT JOIN sys_role_permission b
+    ON a.id=b.permission_id
+    WHERE b.role_id IN
+    <foreach item="id" index="index" collection="roleIds" open="("
+             separator="," close=")">
+      '${id}'
+    </foreach>
+
+  </select>
+  <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_permission
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xpand.system.modules.sys.model.SysPermission" >
+    insert into sys_permission (id, code, name, 
+      menu_id, is_deleted, creator_id, 
+      create_time, updater_id, update_time
+      )
+    values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{menuId,jdbcType=VARCHAR}, #{isDeleted,jdbcType=BIT}, #{creatorId,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updaterId,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.xpand.system.modules.sys.model.SysPermission" >
+    update sys_permission
+    set code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      menu_id = #{menuId,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=BIT},
+      creator_id = #{creatorId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      updater_id = #{updaterId,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id, code, name, menu_id, is_deleted, creator_id, create_time, updater_id, 
+    update_time
+    from sys_permission
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, code, name, menu_id, is_deleted, creator_id, create_time, updater_id, 
+    update_time
+    from sys_permission
+  </select>-->
+</mapper>

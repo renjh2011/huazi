@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry    location="/home/huazi/.m2/repository/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar"/>
+    <context id="default" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <plugin type="com.xpand.generator.plugin.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+        <plugin type="com.xpand.generator.plugin.MapperPlugin">
+        	<property name="targetProject" value="/home/huazi/IdeaProjects/pandauto/xpand/xpand-system/src/main/java/"/>
+        	<property name="targetPackage" value="com.xpand.system.modules.sys.dao"/>
+        </plugin>
+        <!-- 为了防止生成的代码中有很多注释，比较难看，加入下面的配置控制 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+        <!-- 注释控制完毕 -->
+        <!--<commentGenerator>
+            <property name="suppressDate" value="true" />
+        </commentGenerator>-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.0.99:3306/xpand?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull"
+                        userId="xpand" password="xpand">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <javaModelGenerator targetPackage="com.xpand.system.modules.sys.model" targetProject="/home/huazi/IdeaProjects/pandauto/xpand/xpand-system/src/main/java/">
+            <property name="constructorBased" value="false"/>
+            <property name="useActualColumnNames" value="true" />
+            <property name="enableSubPackages" value="false"/>
+            <property name="immutable" value="false"/>
+            <property name="trimStrings" value="true"/>
+            <property name="rootClass" value="com.xpand.common.core.base.BaseModel"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="mappers" targetProject="/home/huazi/IdeaProjects/pandauto/xpand/xpand-system/src/main/resources/">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <javaClientGenerator targetPackage="com.xpand.system.modules.sys.dao" targetProject="/home/huazi/IdeaProjects/pandauto/xpand/xpand-system/src/main/java/" type="XMLMAPPER">
+            <property name="enableSubPackages" value=""/>
+            <property name="methodNameCalculator" value=""/>
+            <property name="rootInterface" value="com.xpand.common.core.base.BaseDao"/>
+        </javaClientGenerator>
+        <table tableName="sys_permission">
+        </table>
+    </context>
+</generatorConfiguration>

@@ -2,6 +2,7 @@ package com.xpand.common.core.config;
 
 import com.alibaba.druid.util.DruidPasswordCallback;
 import com.xpand.common.core.utils.SecurityUtil;
+import jdk.nashorn.internal.objects.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Properties;
@@ -33,7 +34,7 @@ public class DBPasswordCallback extends DruidPasswordCallback {
 
 	// 请使用该方法加密后，把密文写入classpath:/config/jdbc.properties
 	public static void main(String[] args) {
-		String encrypt = SecurityUtil.encryptDes("root", key);
+		String encrypt = SecurityUtil.encryptDes("pand2016", key);
 		System.out.println(encrypt);
 		System.out.println( SecurityUtil.decryptDes(encrypt, key));
 	}

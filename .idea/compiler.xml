@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="xpand-common" />
+        <module name="xpand-generator" />
+        <module name="xpand-system" />
+        <module name="xpand-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="xpand" target="1.5" />
+      <module name="xpand-common" target="1.7" />
+      <module name="xpand-dispatcher" target="1.7" />
+      <module name="xpand-generator" target="1.7" />
+      <module name="xpand-system" target="1.7" />
+      <module name="xpand-web" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

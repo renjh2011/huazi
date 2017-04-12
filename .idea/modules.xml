@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/xpand.iml" filepath="$PROJECT_DIR$/xpand.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xpand-common/xpand-common.iml" filepath="$PROJECT_DIR$/xpand-common/xpand-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xpand-generator/xpand-generator.iml" filepath="$PROJECT_DIR$/xpand-generator/xpand-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xpand-system/xpand-system.iml" filepath="$PROJECT_DIR$/xpand-system/xpand-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xpand-web/xpand-web.iml" filepath="$PROJECT_DIR$/xpand-web/xpand-web.iml" />
+    </modules>
+  </component>
+</project>

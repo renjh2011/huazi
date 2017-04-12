@@ -12,10 +12,11 @@
     <url>http://maven.apache.org</url>
 
     <modules>
-        <module>xpand-dispatcher</module>
+        <!--<module>xpand-dispatcher</module>-->
         <module>xpand-common</module>
         <module>xpand-web</module>
         <module>xpand-generator</module>
+        <module>xpand-system</module>
     </modules>
 
     <properties>
@@ -185,11 +186,11 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.7.21</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>

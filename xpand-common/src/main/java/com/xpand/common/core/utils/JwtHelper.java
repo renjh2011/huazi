@@ -35,18 +35,16 @@ public class JwtHelper {
      * 生成 jwt
      * @param userName
      * @param userId
-     * @param role
-     * @param audience
-     * @param issuer
+     * @param mobile
+     * @param name
      * @param TTLMillis
      * @param base64Security
      * @return
      */
     public static String createJWT(String userName, // 用户名
                                    String userId,   // 用户Id
-                                   String role,     // 用户角色
-                                   String audience,
-                                   String issuer,
+                                   String mobile,
+                                   String name,
                                    long TTLMillis,
                                    String base64Security) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
@@ -57,11 +55,10 @@ public class JwtHelper {
         Key    signingKey        = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
         //添加构成JWT的参数
         JwtBuilder builder = Jwts.builder().setHeaderParam("typ", "JWT")
-                .claim("role", role)
                 .claim("userName", userName)
                 .claim("userId", userId)
-                .setIssuer(issuer)
-                .setAudience(audience)
+                .claim("mobile", mobile)
+                .claim("name", name)
                 .signWith(signatureAlgorithm, signingKey);
         //添加Token过期时间
         if (TTLMillis >= 0) {

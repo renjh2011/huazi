@@ -15,32 +15,6 @@ public class MaliciousRequestInterceptor extends BaseInterceptor {
 
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-/*		HttpSession session = request.getSession();
-		logger.error(session);
-		String preRequest = (String) session.getAttribute(Constants.PREREQUEST);
-		Long preRequestTime = (Long) session.getAttribute(Constants.PREREQUEST_TIME);
-		String url = request.getServletPath();
-		if (preRequestTime != null && preRequest != null) { // 过滤频繁操作
-			if ((url.equals(preRequest) || allRequest)
-					&& System.currentTimeMillis() - preRequestTime < minRequestIntervalTime) {
-				Integer maliciousRequestTimes = (Integer) session.getAttribute(Constants.MALICIOUS_REQUEST_TIMES);
-				if (maliciousRequestTimes == null) {
-					maliciousRequestTimes = 1;
-				} else {
-					maliciousRequestTimes++;
-				}
-				session.setAttribute(Constants.MALICIOUS_REQUEST_TIMES, maliciousRequestTimes);
-				if (maliciousRequestTimes > maxMaliciousTimes) {
-					response.setStatus(HttpCode.MULTI_STATUS.value());
-					logger.warn("To intercept a malicious request : {}", url);
-					return false;
-				}
-			} else {
-				session.setAttribute(Constants.MALICIOUS_REQUEST_TIMES, 0);
-			}
-		}
-		session.setAttribute(Constants.PREREQUEST, url);
-		session.setAttribute(Constants.PREREQUEST_TIME, System.currentTimeMillis());*/
 		return super.preHandle(request, response, handler);
 	}
 

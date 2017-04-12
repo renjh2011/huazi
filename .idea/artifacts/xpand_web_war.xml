@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="xpand-web:war">
+    <output-path>$PROJECT_DIR$/xpand-web/target</output-path>
+    <root id="archive" name="xpand-web.war">
+      <element id="artifact" artifact-name="xpand-web:war exploded" />
+    </root>
+  </artifact>
+</component>

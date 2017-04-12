@@ -1,9 +1,0 @@
-/home/huazi/IdeaProjects/pandauto/xpand/xpand-dispatcher/src/main/java/com/xpand/dispatcher/core/shiro/StatelessAuthcFilter.java
-/home/huazi/IdeaProjects/pandauto/xpand/xpand-dispatcher/src/main/java/com/xpand/dispatcher/modules/sys/service/CarService.java
-/home/huazi/IdeaProjects/pandauto/xpand/xpand-dispatcher/src/main/java/com/xpand/dispatcher/modules/sys/model/Car.java
-/home/huazi/IdeaProjects/pandauto/xpand/xpand-dispatcher/src/main/java/com/xpand/dispatcher/core/shiro/StatelessDefaultSubjectFactory.java
-/home/huazi/IdeaProjects/pandauto/xpand/xpand-dispatcher/src/main/java/com/xpand/dispatcher/modules/sys/web/TestController.java
-/home/huazi/IdeaProjects/pandauto/xpand/xpand-dispatcher/src/main/java/com/xpand/dispatcher/core/shiro/StatelessToken.java
-/home/huazi/IdeaProjects/pandauto/xpand/xpand-dispatcher/src/main/java/com/xpand/dispatcher/core/shiro/StatelessRealm.java
-/home/huazi/IdeaProjects/pandauto/xpand/xpand-dispatcher/src/main/java/com/xpand/dispatcher/modules/sys/model/User.java
-/home/huazi/IdeaProjects/pandauto/xpand/xpand-dispatcher/src/main/java/com/xpand/dispatcher/modules/sys/dao/CarDao.java

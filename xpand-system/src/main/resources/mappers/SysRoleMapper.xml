@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xpand.system.modules.sys.dao.SysRoleDao" >
+  <resultMap id="BaseResultMap" type="com.xpand.system.modules.sys.model.SysRole" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="is_valid" property="isValid" jdbcType="BIT" />
+    <result column="is_deleted" property="isDeleted" jdbcType="BIT" />
+    <result column="creator_id" property="creatorId" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updater_id" property="updaterId" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="columns">
+    id, name, remarks, is_valid, is_deleted, creator_id, create_time, updater_id,
+    update_time
+  </sql>
+  <select id="findRoleByUserId" resultType="com.xpand.system.modules.sys.model.SysRole">
+     select <include refid="columns"/>
+    from sys_role a
+    LEFT JOIN sys_user_role b
+  ON a.id=b.role_id
+where b.user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id, name, remarks, is_valid, is_deleted, creator_id, create_time, updater_id,
+    update_time
+    from sys_role
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="findRoleIdsByUserId" resultType="java.lang.String">
+    select id
+    from sys_role a
+    LEFT JOIN sys_user_role b
+    ON a.id=b.role_id
+    where b.user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+  <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_role
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xpand.system.modules.sys.model.SysRole" >
+    insert into sys_role (id, name, remarks, 
+      is_valid, is_deleted, creator_id, 
+      create_time, updater_id, update_time
+      )
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{isValid,jdbcType=BIT}, #{isDeleted,jdbcType=BIT}, #{creatorId,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updaterId,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.xpand.system.modules.sys.model.SysRole" >
+    update sys_role
+    set name = #{name,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      is_valid = #{isValid,jdbcType=BIT},
+      is_deleted = #{isDeleted,jdbcType=BIT},
+      creator_id = #{creatorId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      updater_id = #{updaterId,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id, name, remarks, is_valid, is_deleted, creator_id, create_time, updater_id, 
+    update_time
+    from sys_role
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, name, remarks, is_valid, is_deleted, creator_id, create_time, updater_id, 
+    update_time
+    from sys_role
+  </select>-->
+</mapper>
