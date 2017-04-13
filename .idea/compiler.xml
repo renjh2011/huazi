@@ -14,11 +14,11 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="xpand" target="1.5" />
-      <module name="xpand-common" target="1.7" />
+      <module name="xpand-common" target="1.8" />
       <module name="xpand-dispatcher" target="1.7" />
-      <module name="xpand-generator" target="1.7" />
-      <module name="xpand-system" target="1.7" />
-      <module name="xpand-web" target="1.7" />
+      <module name="xpand-generator" target="1.8" />
+      <module name="xpand-system" target="1.8" />
+      <module name="xpand-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
