@@ -9,8 +9,6 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * @author sofn
- * @version 2016年6月24日 下午6:42:28
  */
 public class SerializablePlugin extends PluginAdapter {
 

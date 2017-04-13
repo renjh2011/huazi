@@ -7,9 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 日志拦截器
- * 
- * @author sofn
- * @version 2016年6月14日 下午6:18:46
  */
 public class EventInterceptor extends BaseInterceptor {
 

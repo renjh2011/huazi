@@ -5,8 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 恶意请求拦截器
- * @author sofn
- * @version 2016年5月20日 下午3:16:57
  */
 public class MaliciousRequestInterceptor extends BaseInterceptor {
 	private Boolean allRequest = false; // 拦截所有请求,否则拦截相同请求

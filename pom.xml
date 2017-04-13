@@ -21,8 +21,6 @@
 
     <properties>
         <!-- 开发阶段配置文件位置, 发布时打包加参数：-P product -->
-        <scheduler.jdbc.config.path>classpath:config/jdbc.properties</scheduler.jdbc.config.path>
-        <sys.jdbc.config.path>classpath:config/jdbc.properties</sys.jdbc.config.path>
         <system.config.path>classpath:config/system.properties</system.config.path>
         <!--  -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -289,9 +287,7 @@
         <profile>
             <id>product</id>
             <properties>
-                <scheduler.jdbc.config.path>file:/home/config/sofn/jdbc-scheduler.properties</scheduler.jdbc.config.path>
-                <sys.jdbc.config.path>file:/home/config/sofn/jdbc-sys.properties</sys.jdbc.config.path>
-                <system.config.path>file:/home/config/sofn/system.properties</system.config.path>
+                <system.config.path>file:/home/huazi/IdeaProjects/pandauto/xpand/xpand-web/src/main/resources/conf/system.properties</system.config.path>
             </properties>
         </profile>
         <profile>

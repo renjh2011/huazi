@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 拦截器基类
- * 
- * @author sofn
- * @version 2016年5月20日 下午3:16:31
  */
 public class BaseInterceptor extends HandlerInterceptorAdapter {
 	protected final Logger logger = LogManager.getLogger();

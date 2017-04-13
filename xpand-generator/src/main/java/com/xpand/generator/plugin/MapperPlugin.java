@@ -16,14 +16,10 @@ import static org.mybatis.generator.internal.util.StringUtility.stringHasValue;
 
 /**
  * 生成 Mapper 类
- * 
- * @author sofn
- * @version 2016年6月24日 下午6:47:06
  */
 public class MapperPlugin extends PluginAdapter {
 
 	private static final String DEFAULT_DAO_SUPER_CLASS = "com.xpand.common.core.base.BaseDao";
-//	private static final String DEFAULT_EXPAND_DAO_SUPER_CLASS = "com.sofn.core.base.BaseExpandMapper";
 	private String daoTargetDir;
 	private String daoTargetPackage;
 

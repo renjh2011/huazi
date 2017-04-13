@@ -6,6 +6,7 @@ package com.xpand.common.core.base;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.xpand.common.core.exception.BaseException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.ui.ModelMap;
@@ -17,8 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 控制器基类
  * 
- * @author sofn
- * @version 2016年5月20日 下午3:47:58
  */
 public abstract class BaseController {
 	protected final Logger logger = LogManager.getLogger(this.getClass());
@@ -37,6 +36,12 @@ public abstract class BaseController {
 	@ExceptionHandler(Exception.class)
 	public void exceptionHandler(HttpServletRequest request, HttpServletResponse response, Exception ex)
 			throws Exception {
+		ResponseObject responseObject=null;
+		if(ex instanceof BaseException){
+			responseObject=ResponseObject.failure(ex);
+		}else if(ex instanceof Exception){
+
+		}
 		response.setContentType("application/json;charset=UTF-8");
 		response.getOutputStream().write(JSONObject.toJSON(ResponseObject.failure(ex.getMessage())).toString().getBytes());
 	}

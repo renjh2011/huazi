@@ -32,7 +32,7 @@ import java.util.Map;
  */
 @Api("登录接口")
 @Controller
-@RequestMapping(value = "/{adminPath}/system")
+@RequestMapping(value = "/{systemPath}/system")
 public class LoginController extends BaseController{
     @Autowired
     private SysUserService sysUserService;
